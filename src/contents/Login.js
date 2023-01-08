@@ -1,23 +1,25 @@
-import './Login.css'
+import '../App.css'
 import {useState} from "react"
-import Registerscreen from './Registerscreen'
+// import Register from './Register'
+// import Navitems from '../component/Navitems'
 
 
-const Loginscreen = ()=>{
+const Login = ()=>{
+  
   const [userName,setUserName] = useState('')
-  const [email, setEmail] = useState ('')
+  const [email] = useState ('')
   const [password,setPassword] = useState('')
-  const [repassword, setRePassword] = useState ('')
+  const [repassword] = useState ('')
 
   const [errorUserName,setErrorUserName] = useState ('')
-  const [errorEmail,setErrorEmail] = useState ('')
+  const [setErrorEmail] = useState ('')
   const [errorPassword,setErrorPassword] = useState ('')
-  const [errorRepassword,setErrorRepassword] = useState ('')
+  const [setErrorRepassword] = useState ('')
 
   const [userNameColor,setUserNameColor] = useState('')
-  const [emailColor,setEmailColor] = useState('')
+  const [setEmailColor] = useState('')
   const [passwordColor,setPasswordColor] = useState ('')
-  const [rePasswordColor,setRePasswordColor] = useState ('')
+  const [setRePasswordColor] = useState ('')
 
   const validateForm = (e)=>{
     e.preventDefault()
@@ -78,9 +80,16 @@ const Loginscreen = ()=>{
             <small style={{color:rePasswordColor}}>{errorRepassword}</small>
           </div> */}
           <button type="submit">Đăng Nhập</button>
-          <p >Chưa có tài khoản? <a href= 'Registerscreen.js'> Đăng Ký</a></p>
+          
+          {/* <nav>
+          <ul>
+            <li>
+            <link to="/Register">Chưa có tài khoản?</link>
+            </li>
+          </ul>
+          </nav> */}
       </form>
     </div>
   )
 }
-export default Loginscreen
+export default Login

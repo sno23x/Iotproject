@@ -1,4 +1,4 @@
-import './Login.css'
+import '../App.css'
 import {useState} from "react"
 
 

@@ -44,7 +44,7 @@ nav ul li a {
   background-color: #f4f5f9;
   flex: var(--condiv-flex);
 }
-
+/* Home */
 .home {
   display: flex;
   justify-content: center;
@@ -57,7 +57,6 @@ nav ul li a {
   width: 400px;
   margin: 30px;
 }
-
 .social {
   position: absolute;
   margin-top: 20px;
@@ -79,4 +78,101 @@ nav ul li a {
 .typingeffect {
   font-size: var(--typing-font);
   margin-bottom: 30px;
+}
+/* About */
+.about {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+
+.profilepic1  {
+  border-radius: 50%;
+  width: 400px;
+  margin: 30px;
+}
+
+.subtopic{
+  margin: 10px 10px 30px 10px !important;
+}
+
+p {
+  font-size: var(--fontsize-p);
+}
+
+/* Login */
+
+.login{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+body{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0px;
+  min-height: 100vh;
+  background: #fafafa;
+}
+.container{
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  width: 1526px;
+  
+}
+.form{
+  padding: 10px 50px 20px 30px;
+  align-items: center;
+  margin-left: 500px;
+
+}
+h2{
+  text-align: center;
+  margin: 0 0 0 0px;
+  padding: 20px 20px 20px 20px;
+  color: #3498db;
+  font-size: var(--typing-font)
+}
+
+.form-control{
+  position: relative;
+  margin-bottom: 10px;
+  padding-bottom: 20px;
+}
+.form-control label{
+  display: block;
+  margin-bottom: 5px;
+}
+.form-control input{
+  display: block;
+  border: 2px solid #f0f0f0;
+  border-radius: 4px;
+  width: 50%;
+  margin-top: 10px;
+  margin-left: 0px;
+  padding: 10px;
+  font-size: 14px
+}
+.form-control input:focus{
+ outline: none;
+}
+
+.form button{
+  background: #3498db;
+  cursor:pointer;
+  color: white;
+  width: 20%;
+  margin-top: 20px;
+  margin-left: 150px;
+  border: 2px solid #3498db;
+  display: block;
+  padding: 10px;
+  font-size: 16px;
 }

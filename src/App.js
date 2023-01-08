@@ -1,21 +1,35 @@
 import React from 'react'
 import './App.css'
-import Navbar from './component/Navbar'
-
-// Contents
-import Home from './contents/Home'
-
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Navbar from './component/Navbar';
+import Home from './contents/Home';
+import About from './contents/About';
+import Login from './contents/Login';
+import Register from './contents/Register';
 
 function App() {
   return (
-    <Router>
+    <BrowserRouter>
       <div className="App">
         <Navbar />
-        <Home />
-          {/* <Route exact path="/"> </Route> */}
+    <Routes>
+      <Route path="/" element={<Home />}>
+        <Route index element={<Home />} />
+      </Route>
+      <Route path="/about" element={<About />}>
+        <Route index element={<About />} />
+      </Route>
+      <Route path="/login" element={<Login />}>
+        <Route index element={<Login />} />
+      </Route>
+      <Route path="/register" element={<Register />}>
+        <Route index element={<Register />} />
+      </Route>
+    </Routes>
+        
       </div>
-    </Router>
+  </BrowserRouter>
+  
   );
 }
 

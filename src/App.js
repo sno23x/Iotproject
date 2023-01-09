@@ -6,7 +6,7 @@ import Home from './contents/Home';
 import About from './contents/About';
 import Login from './contents/Login';
 import Register from './contents/Register';
-
+import Dashboard from './contents/Dashboard';
 function App() {
   return (
     <BrowserRouter>
@@ -24,6 +24,9 @@ function App() {
       </Route>
       <Route path="/register" element={<Register />}>
         <Route index element={<Register />} />
+      </Route>
+      <Route path="/dashboard" element={<Dashboard />}>
+        <Route index element={<Dashboard />} />
       </Route>
     </Routes>
         

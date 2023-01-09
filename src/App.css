@@ -54,7 +54,7 @@ nav ul li a {
 
 .profilepic {
   border-radius: 10%;
-  width: 400px;
+  width: 500px;
   margin: 30px;
 }
 .social {
@@ -176,3 +176,6 @@ h2{
   padding: 10px;
   font-size: 16px;
 }
+
+/* Dashboard */
+

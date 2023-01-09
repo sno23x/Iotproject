@@ -1,5 +1,6 @@
 import '../App.css'
 import {useState} from "react"
+import { Link } from 'react-router-dom'
 
 
 const Registerscreen = ()=>{
@@ -75,6 +76,10 @@ const Registerscreen = ()=>{
             <label>Xác nhận mật khẩu</label>
             <input type="password" value={repassword} onChange={(e)=>setRePassword(e.target.value)} style={{borderColor:rePasswordColor}}></input>
             <small style={{color:rePasswordColor}}>{errorRepassword}</small>
+          </div>
+          <div className="form-control">
+          <Link to="/Login">Đăng Nhập</Link>
+
           </div>
           <button type="submit"> Đăng ký</button>
       </form>

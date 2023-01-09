@@ -1,7 +1,7 @@
 import '../App.css'
 import {useState} from "react"
-// import Register from './Register'
-// import Navitems from '../component/Navitems'
+import { Link } from 'react-router-dom'
+
 
 
 const Login = ()=>{
@@ -74,6 +74,10 @@ const Login = ()=>{
             <input type="password" value={password} onChange={(e)=>setPassword(e.target.value)} style={{borderColor:passwordColor}}></input>
             <small style={{color:passwordColor}}>{errorPassword}</small>
           </div>
+          <div className="form-control">
+          <Link to="/Register">Tạo tài khoản?</Link>
+
+          </div>
           {/* <div className="form-control">
             <label>Xác nhận mật khẩu</label>
             <input type="password" value={repassword} onChange={(e)=>setRePassword(e.target.value)} style={{borderColor:rePasswordColor}}></input>
@@ -81,13 +85,10 @@ const Login = ()=>{
           </div> */}
           <button type="submit">Đăng Nhập</button>
           
-          {/* <nav>
-          <ul>
-            <li>
-            <link to="/Register">Chưa có tài khoản?</link>
-            </li>
-          </ul>
-          </nav> */}
+
+        
+           
+
       </form>
     </div>
   )

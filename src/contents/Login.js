@@ -7,19 +7,16 @@ import { Link } from 'react-router-dom'
 const Login = ()=>{
   
   const [userName,setUserName] = useState('')
-  const [email] = useState ('')
   const [password,setPassword] = useState('')
-  const [repassword] = useState ('')
+
 
   const [errorUserName,setErrorUserName] = useState ('')
-  const [setErrorEmail] = useState ('')
   const [errorPassword,setErrorPassword] = useState ('')
-  const [setErrorRepassword] = useState ('')
+
 
   const [userNameColor,setUserNameColor] = useState('')
-  const [setEmailColor] = useState('')
   const [passwordColor,setPasswordColor] = useState ('')
-  const [setRePasswordColor] = useState ('')
+
 
   const validateForm = (e)=>{
     e.preventDefault()
@@ -28,32 +25,16 @@ const Login = ()=>{
       setErrorUserName('')
       setUserNameColor('green')
     }else{
-      setErrorUserName('Vui lòng nhập tên đăng nhập nhiều hơn 8 chữ')
+      setErrorUserName('Tên đăng nhập không tồn tại')
       setUserNameColor('red')
     }
-    if(email.includes("@")){
-      setErrorEmail('')
-      setEmailColor('green')
-    }else{
-      setErrorEmail('Email không đúng')
-      setEmailColor('red')
-    }
-
     if(password.length>8){
       setErrorPassword('')
       setPasswordColor('green')
     }else{
-      setErrorPassword('Mật khẩu phải có 8 ký tự trở lên')
+      setErrorPassword('Mật khẩu Không đúng')
       setPasswordColor('red')
     }
-    if(repassword !== "" && repassword === password){
-      setErrorRepassword('')
-      setRePasswordColor('green')
-    }else{
-      setErrorRepassword('Mật khẩu không trùng nhau')
-      setRePasswordColor('red')
-    }
-    
   }
   return(
     <div className="container">
@@ -64,11 +45,6 @@ const Login = ()=>{
             <input type="text" value={userName} onChange={(e)=>setUserName(e.target.value)} style={{borderColor:userNameColor}}></input>
             <small style={{color:userNameColor}}>{errorUserName}</small>
           </div>
-          {/* <div className="form-control">
-            <label>Email đăng nhập</label>
-            <input type="text" value={email} onChange={(e)=>setEmail(e.target.value)} style={{borderColor:emailColor}}></input>
-            <small style={{color:emailColor}}>{errorEmail}</small>
-          </div> */}
           <div className="form-control">
             <label>Mật khẩu</label>
             <input type="password" value={password} onChange={(e)=>setPassword(e.target.value)} style={{borderColor:passwordColor}}></input>
@@ -78,11 +54,6 @@ const Login = ()=>{
           <Link to="/Register">Tạo tài khoản?</Link>
 
           </div>
-          {/* <div className="form-control">
-            <label>Xác nhận mật khẩu</label>
-            <input type="password" value={repassword} onChange={(e)=>setRePassword(e.target.value)} style={{borderColor:rePasswordColor}}></input>
-            <small style={{color:rePasswordColor}}>{errorRepassword}</small>
-          </div> */}
           <button type="submit">Đăng Nhập</button>
           
       </form>

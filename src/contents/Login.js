@@ -1,11 +1,11 @@
 import '../App.css'
 import {useState} from "react"
 import { Link } from 'react-router-dom'
-
+import axios from "axios"
 
 
 const Login = ()=>{
-  
+  // thar localstorage have UserInfo --> auto redirect dashboard 
   const [userName,setUserName] = useState('')
   const [password,setPassword] = useState('')
 
@@ -17,9 +17,37 @@ const Login = ()=>{
   const [userNameColor,setUserNameColor] = useState('')
   const [passwordColor,setPasswordColor] = useState ('')
 
-
-  const validateForm = (e)=>{
+  const handleSubmit = e => {
+    // Prevent the default submit and page reload
     e.preventDefault()
+
+    // Handle validations
+    axios
+      .post("http://127.0.0.1:8000/api-auth", { userName, password })
+      .then(response => {
+        console.log(response)
+        // Handle response
+        // if dai - > localsave UserInfo 
+      })
+    
+  // // async function loginUser(credentials){
+  //   return fetch('https://www.melivecode.com/api/login',{
+  //     method: 'POST',
+  //     header: {
+  //       'Content-Type': 'application/json'
+  //     },
+  //     body: JSON.stringify(credentials)
+  //   })
+  //   .then(data => data.json) 
+  // }
+  // const validateForm = async e =>{
+  //   e.preventDefault();
+  //   const response = await loginUser({
+  //     userName,
+  //     password
+  //   });
+  //   console.log(response)
+  // }
 
     if(userName.length>8){
       setErrorUserName('')
@@ -36,10 +64,11 @@ const Login = ()=>{
       setPasswordColor('red')
     }
   }
+
   return(
-    <div className="container">
-      <h2>Login</h2>
-      <form className="form" onSubmit={validateForm}>
+  <div className="container">
+    <h2>Login</h2>
+      <form className="form" id="login" method="post" onSubmit={handleSubmit}>
           <div className="form-control">
             <label>Tên đăng nhập</label>
             <input type="text" value={userName} onChange={(e)=>setUserName(e.target.value)} style={{borderColor:userNameColor}}></input>

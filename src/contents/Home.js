@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-// import Social from '../component/Social'
 import profilepic from  '../img/Smartfarm2.jpg'
 import ReactTypingEffect from 'react-typing-effect'
 

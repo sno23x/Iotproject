@@ -16,6 +16,11 @@ class Navbar extends Component {
                     <Navitems item="About" tolink="/about"></Navitems>
                     <Navitems item="Hardware" tolink="/hardware"></Navitems>
                     <Navitems item="Dashboard" tolink="/dashboard"></Navitems>
+                    <Navitems item="Profile" tolink="/profile"></Navitems>
+                    {/* if Localstorage have UserInfo  
+                    <Navitems item="Logout" tolink="/Logout"></Navitems>
+                    else
+                    */}
                     <Navitems item="Login" tolink="/login"></Navitems>
                 </ul>
                 

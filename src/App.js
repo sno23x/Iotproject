@@ -7,12 +7,20 @@ import About from './contents/About';
 import Login from './contents/Login';
 import Register from './contents/Register';
 import Dashboard from './contents/Dashboard';
+import Profile from './contents/Profile';
+
+
 function App() {
+  // const token = localStorage.getItem("accessToken");
+
+
+  // if (!token) {
+  //    return <Login /> }
   return (
-    <BrowserRouter>
-      <div className="App">
+   <BrowserRouter>
+    <div className="App">
         <Navbar />
-    <Routes>
+      <Routes>
       <Route path="/" element={<Home />}>
         <Route index element={<Home />} />
       </Route>
@@ -28,8 +36,10 @@ function App() {
       <Route path="/dashboard" element={<Dashboard />}>
         <Route index element={<Dashboard />} />
       </Route>
-    </Routes>
-        
+      <Route path="/profile" element={<Profile />}>
+        <Route index element={<Profile />} />
+      </Route>
+    </Routes> 
       </div>
   </BrowserRouter>
   

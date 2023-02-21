@@ -1,7 +1,7 @@
 import '../App.css'
 import {useState} from "react"
 import { Link } from 'react-router-dom'
-import axios from "axios"
+// import axios from "axios"
 
 
 const Login = ()=>{
@@ -17,20 +17,20 @@ const Login = ()=>{
   const [userNameColor,setUserNameColor] = useState('')
   const [passwordColor,setPasswordColor] = useState ('')
 
-  const handleSubmit = e => {
-    // Prevent the default submit and page reload
-    e.preventDefault()
+  // const handleSubmit = e => {
+  //   // Prevent the default submit and page reload
+  //   e.preventDefault()
 
     // Handle validations
-    axios
-      .post("http://127.0.0.1:8000/api-auth", { userName, password })
-      .then(response => {
-        console.log(response)
-        // Handle response
-        // if dai - > localsave UserInfo 
-      })
+    // axios
+    //   .post("https://www.melivecode.com/api/login", { userName, password })
+    //   .then(response => {
+    //     console.log(response)
+    //     // Handle response
+    //     // if dai - > localsave UserInfo 
+    //   })
     
-  // // async function loginUser(credentials){
+  // async function loginUser (credentials){
   //   return fetch('https://www.melivecode.com/api/login',{
   //     method: 'POST',
   //     header: {
@@ -40,13 +40,13 @@ const Login = ()=>{
   //   })
   //   .then(data => data.json) 
   // }
-  // const validateForm = async e =>{
-  //   e.preventDefault();
+  const validateForm =  (e) =>{
+    e.preventDefault()
   //   const response = await loginUser({
   //     userName,
   //     password
   //   });
-  //   console.log(response)
+  //   console.log(response);
   // }
 
     if(userName.length>8){
@@ -62,13 +62,13 @@ const Login = ()=>{
     }else{
       setErrorPassword('Mật khẩu Không đúng')
       setPasswordColor('red')
-    }
+    
   }
-
+}
   return(
   <div className="container">
     <h2>Login</h2>
-      <form className="form" id="login" method="post" onSubmit={handleSubmit}>
+      <form className="form" onSubmit={validateForm}>
           <div className="form-control">
             <label>Tên đăng nhập</label>
             <input type="text" value={userName} onChange={(e)=>setUserName(e.target.value)} style={{borderColor:userNameColor}}></input>
@@ -89,4 +89,6 @@ const Login = ()=>{
     </div>
   )
 }
-export default Login
+
+
+export default Login;

@@ -15,11 +15,12 @@ function App() {
 
 
   // if (!token) {
-  //    return <Login /> }
   return (
-   <BrowserRouter>
+    
+  <BrowserRouter>
     <div className="App">
         <Navbar />
+    {/* <form action="" id="login" method="post">  */}
       <Routes>
       <Route path="/" element={<Home />}>
         <Route index element={<Home />} />
@@ -40,10 +41,11 @@ function App() {
         <Route index element={<Profile />} />
       </Route>
     </Routes> 
+    {/* </ form> */}
       </div>
   </BrowserRouter>
   
   );
 }
-
+// }// 
 export default App;

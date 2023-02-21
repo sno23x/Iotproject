@@ -86,4 +86,4 @@ const Registerscreen = ()=>{
     </div>
   )
 }
-export default Registerscreen
+export default Registerscreen;

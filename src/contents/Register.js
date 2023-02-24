@@ -1,7 +1,7 @@
 import '../App.css'
 import {useState} from "react"
 import { Link } from 'react-router-dom'
-
+import axios from "axios"
 
 const Registerscreen = ()=>{
   const [userName,setUserName] = useState('')
@@ -19,8 +19,7 @@ const Registerscreen = ()=>{
   const [passwordColor,setPasswordColor] = useState ('')
   const [rePasswordColor,setRePasswordColor] = useState ('')
 
-  const validateForm = (e)=>{
-    e.preventDefault()
+  const handleSubmit = (event) => {
 
     if(userName.length>8){
       setErrorUserName('')
@@ -52,11 +51,25 @@ const Registerscreen = ()=>{
       setRePasswordColor('red')
     }
     
+    axios.post("http://localhost:8000/users/register", {
+      username: userName,
+      email: email,
+      password: password,
+      repassword: repassword
+    })
+    .then((response) => {
+      console.log(response)
+      document.cookie = response.data
+      console.log(response.data.accessToken)
+      console.log(response.data.status)
+      console.log(response.data.message)
+      console.log(response.data.user)
+    });
   }
   return(
     <div className="container">
       <h2>Register</h2>
-      <form className="form" onSubmit={validateForm}>
+      <form className="form" onSubmit={handleSubmit}>
           <div className="form-control">
             <label>Tên đăng nhập</label>
             <input type="text" value={userName} onChange={(e)=>setUserName(e.target.value)} style={{borderColor:userNameColor}}></input>

@@ -14,13 +14,14 @@ function App() {
   // const token = localStorage.getItem("accessToken");
 
 
-  // if (!token) {
-  return (
+  // if (!token){
+  
+    return (
     
   <BrowserRouter>
     <div className="App">
         <Navbar />
-    {/* <form action="" id="login" method="post">  */}
+      <form id="login" method="post"> 
       <Routes>
       <Route path="/" element={<Home />}>
         <Route index element={<Home />} />
@@ -41,11 +42,12 @@ function App() {
         <Route index element={<Profile />} />
       </Route>
     </Routes> 
-    {/* </ form> */}
+    </ form>
       </div>
   </BrowserRouter>
   
   );
-}
+  }
+
 // }// 
 export default App;

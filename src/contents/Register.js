@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import axios from "axios"
 
 const Registerscreen = ()=>{
+  
   const [userName,setUserName] = useState('')
   const [email, setEmail] = useState ('')
   const [password,setPassword] = useState('')
@@ -19,7 +20,7 @@ const Registerscreen = ()=>{
   const [passwordColor,setPasswordColor] = useState ('')
   const [rePasswordColor,setRePasswordColor] = useState ('')
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event) => {   
 
     if(userName.length>8){
       setErrorUserName('')
@@ -55,7 +56,6 @@ const Registerscreen = ()=>{
       username: userName,
       email: email,
       password: password,
-      repassword: repassword
     })
     .then((response) => {
       console.log(response)

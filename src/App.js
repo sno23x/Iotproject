@@ -11,17 +11,12 @@ import Profile from './contents/Profile';
 
 
 function App() {
-  // const token = localStorage.getItem("accessToken");
-
-
-  // if (!token){
   
     return (
     
   <BrowserRouter>
     <div className="App">
         <Navbar />
-      <form id="login" method="post"> 
       <Routes>
       <Route path="/" element={<Home />}>
         <Route index element={<Home />} />
@@ -42,7 +37,6 @@ function App() {
         <Route index element={<Profile />} />
       </Route>
     </Routes> 
-    </ form>
       </div>
   </BrowserRouter>
   

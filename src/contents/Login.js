@@ -2,7 +2,7 @@ import '../App.css'
 import {useState} from "react"
 import { Link } from 'react-router-dom'
 import axios from "axios"
-import { authenticate } from '../services/authorize'
+// import { authenticate } from '../services/authorize'
 import { useNavigate } from 'react-router-dom';
 
 
@@ -46,7 +46,7 @@ const  Login = ()=>{
         password: password })
         .then (response =>{
           // Lưu trữ token nhận được vào localStorage hoặc cookie
-          authenticate(response)
+          // authenticate(response)
           localStorage.setItem('token', response.data.accessToken);
           localStorage.setItem('user', response.data.user);
         console.log(response.data.status)

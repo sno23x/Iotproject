@@ -2,7 +2,7 @@ import '../App.css'
 import {useState} from "react"
 import { Link } from 'react-router-dom'
 import axios from "axios"
-// import { authenticate } from '../services/authorize'
+import { authenticate } from '../services/authorize'
 import { useNavigate } from 'react-router-dom';
 
 
@@ -23,7 +23,6 @@ const  Login = ()=>{
   // const handleSubmit = (e) => {
     const handleSubmit = (e) => {
       e.preventDefault();
-      navigate('/dashboard');
     // 
     if(userName.length>8){
       setErrorUserName('')
@@ -46,7 +45,7 @@ const  Login = ()=>{
         password: password })
         .then (response =>{
           // Lưu trữ token nhận được vào localStorage hoặc cookie
-          // authenticate(response)
+          authenticate(response,() => navigate('/dashboard'))
           localStorage.setItem('token', response.data.accessToken);
           localStorage.setItem('user', response.data.user);
         console.log(response.data.status)

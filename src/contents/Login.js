@@ -2,9 +2,12 @@ import '../App.css'
 import {useState} from "react"
 import { Link } from 'react-router-dom'
 import axios from "axios"
+import { authenticate } from '../services/authorize'
+import { useNavigate } from 'react-router-dom';
 
 
-const Login = ()=>{
+const  Login = ()=>{
+  const navigate = useNavigate();
 
   const [userName,setUserName] = useState('')
   const [password,setPassword] = useState('')
@@ -17,7 +20,11 @@ const Login = ()=>{
   const [userNameColor,setUserNameColor] = useState('')
   const [passwordColor,setPasswordColor] = useState ('')
 
-  const handleSubmit = (event) => {
+  // const handleSubmit = (e) => {
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      navigate('/dashboard');
+    // 
     if(userName.length>8){
       setErrorUserName('')
       setUserNameColor('green')
@@ -32,24 +39,48 @@ const Login = ()=>{
       setErrorPassword('Mật khẩu Không đúng')
       setPasswordColor('red')
     }
-    axios.post("http://127.0.0.1:8000/api-auth", {
-      username: userName,
-      password: password
-    })
-    .then((response) => {
-      console.log(response)
-      document.cookie = response.data
-      console.log(response.data.accessToken)
-      console.log(response.data.status)
-      console.log(response.data.message)
-      console.log(response.data.user)
-    });
-}
+    
+    
+      axios.post('https://www.melivecode.com/api/login', {
+        username: userName,
+        password: password })
+        .then (response =>{
+          // Lưu trữ token nhận được vào localStorage hoặc cookie
+          authenticate(response)
+          localStorage.setItem('token', response.data.accessToken);
+          localStorage.setItem('user', response.data.user);
+        console.log(response.data.status)
+        console.log(response.data.message)
+        console.log(response.data.user)
+        // Điều hướng đến trang được bảo vệ
+        })
+        .catch((error) =>{
+          console.error(error)
+        });
+  };
+
+  
+
+//     axios.post("https://www.melivecode.com/api/login", {
+//       username: userName,
+//       password: password
+//     })
+//     .then (response =>{
+//       authenticate(response,()=> props.history.push('/dashboard'))
+//       localStorage.setItem('token', response.data.accessToken);
+//       localStorage.setItem('user', response.data.user);
+//       console.log(response.data.accessToken)
+//       console.log(response.data.status)
+//       console.log(response.data.message)
+//       console.log(response.data.user)
+//     });
+// }
+
 
   return(
   <div className="container">
     <h2>Login</h2>
-      <form className="form"  id="login"  >
+      <form className="form" onSubmit={handleSubmit} >
           <div className="form-control">
             <label>Tên đăng nhập</label>
             <input type="text" value={userName} onChange={(e)=>setUserName(e.target.value)} style={{borderColor:userNameColor}}></input>
@@ -64,11 +95,13 @@ const Login = ()=>{
           <Link to="/Register">Tạo tài khoản?</Link>
 
           </div>
-          <button type="button" onClick={handleSubmit} >Đăng Nhập</button>
+          <button type="button" onClick={(handleSubmit) } >Đăng Nhập</button>
           
       </form>
     </div>
   )
 }
 
-export default Login;
+export default (Login);
+
+
